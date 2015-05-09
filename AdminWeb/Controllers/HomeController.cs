@@ -11,7 +11,8 @@ namespace AdminWeb.Controllers
         public ActionResult Index()
         {
             ViewData["SubTitle"] = "I be out! ";
-            ViewData["Message"] = "... but then I'll come back";
+            ViewData["Message"] = "Jeeee body!";
+            ViewData["Strengur"] = "Djamm í kvöld";
 
             return View();
         }
