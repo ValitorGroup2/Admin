@@ -10,8 +10,8 @@ namespace AdminWeb.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["SubTitle"] = "Welcome in ASP.NET MVC 5 INSPINIA SeedProject ";
-            ViewData["Message"] = "It is an application skeleton for a typical MVC 5 project. You can use it to quickly bootstrap your webapp projects.";
+            ViewData["SubTitle"] = "I be out! ";
+            ViewData["Message"] = "... but then I'll come back";
 
             return View();
         }
