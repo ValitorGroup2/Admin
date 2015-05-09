@@ -171,12 +171,19 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\AccountDal.cs" />
+    <Compile Include="DAL\AdminWebDal.cs" />
     <Compile Include="DAL\Connections\Account.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Account.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DAL\Connections\AdminWebDal.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminWebDal.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DAL\IAccountDal.cs" />
+    <Compile Include="DAL\IAdminWebDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -251,6 +258,11 @@
       <LastGenOutput>Account.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="DAL\Connections\AdminWebDal.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AdminWebDal.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\vasinn.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -302,6 +314,11 @@
   <ItemGroup>
     <None Include="DAL\Connections\Account.dbml.layout">
       <DependentUpon>Account.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DAL\Connections\AdminWebDal.dbml.layout">
+      <DependentUpon>AdminWebDal.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <PropertyGroup>

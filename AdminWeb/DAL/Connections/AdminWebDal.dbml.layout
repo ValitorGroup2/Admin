@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AdminWebDal">
+  <DataContextMoniker Name="/AdminWebDalDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a41c6732-24dc-41e1-8f8a-c41a046a0910" absoluteBounds="6, 1.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/AdminWebDalDataContext/Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a8f954c-a8a5-474a-8a91-e3ffded3ffaf" absoluteBounds="6.015, 2.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
