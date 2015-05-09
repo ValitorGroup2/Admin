@@ -12,7 +12,7 @@ namespace AdminWeb.Controllers
         {
             ViewData["SubTitle"] = "I be out! ";
             ViewData["Message"] = "Jeeee body!";
-            ViewData["Strengur"] = "Djamm í kvöld";
+            ViewData["Strengur"] = "Djamm í kvöld...!";
 
             return View();
         }
