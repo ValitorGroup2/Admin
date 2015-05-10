@@ -6,6 +6,9 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
+                                <img src="~/Content/images/VasinnFinal.png" width="70" height="70" alt="Vasinn" />
+                            </span>
+                            <span class="block m-t-xs">
                                 <strong class="font-bold">Notandi</strong>
                             </span>
                         </span>
@@ -30,13 +33,13 @@
                 </ul>
             </li>
             <li class="@Html.IsSelected(controller: "Transaction")">
-                <a href="@Url.Action("Index", "Transaction")"><i class="fa fa-desktop"></i> <span class="nav-label">Söluyfirlit</span></a>
+                <a href="@Url.Action("Index", "Transaction")"><i class="fa fa-credit-card"></i> <span class="nav-label">Söluyfirlit</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "Notification")">
-                <a href="@Url.Action("Index", "Notification")"><i class="fa fa-desktop"></i> <span class="nav-label">Tilkynningar</span></a>
+                <a href="@Url.Action("Index", "Notification")"><i class="fa fa-comment"></i> <span class="nav-label">Tilkynningar</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "Account")">
-                <a href="@Url.Action("Manage", "Account")"><i class="fa fa-desktop"></i> <span class="nav-label">Stillingar</span></a>
+                <a href="@Url.Action("Manage", "Account")"><i class="fa fa-cog"></i> <span class="nav-label">Stillingar</span></a>
             </li>
         </ul>
     </div>
