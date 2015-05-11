@@ -14,11 +14,6 @@ namespace AdminWeb.Controllers
         {
             return View();
         }
-
-		public ActionResult FAQ()
-		{
-			return View();
-		}
 	}
 }
 

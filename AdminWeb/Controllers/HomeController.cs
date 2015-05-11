@@ -25,5 +25,6 @@ namespace AdminWeb.Controllers
 
             return View();
         }
+
     }
 }
