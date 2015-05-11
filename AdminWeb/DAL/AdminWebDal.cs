@@ -17,6 +17,7 @@ namespace AdminWeb.DAL
 		}
 		#endregion
 
+		#region Staff functions
 		/// <summary>
 		/// Function that returns all Staff accounts
 		/// </summary>
@@ -91,7 +92,70 @@ namespace AdminWeb.DAL
 
 			return company;
 		}
+		#endregion
+
+		#region Transactions
+		/// <summary>
+		/// Function that returns a list of all transactions
+		/// </summary>
+		/// <returns>List<Transaction><returns>
+		public List<Transaction> GetAllTransactions()
+		{
+			List<Transaction> allTransactions = adminWebContext.Transactions.ToList();
+
+			return allTransactions;
+		}
+
+		/// <summary>
+		/// Function that returns all transactions for given user
+		/// </summary>
+		/// <param name="staffID"></param>
+		/// <returns> List<Transactions> </returns>
+		public List<Transaction> GetAllTransactionsForUser(int staffID)
+		{
+			List<Transaction> allTransactionsForUser = adminWebContext.Transactions.Where(t => t.ID == staffID).ToList();
+
+			return allTransactionsForUser;
+		}
+
+		/// <summary>
+		/// Function that returns transaction from specific ID
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>Transaction</returns>
+		public Transaction GetTransactionByID(int id)
+		{
+			Transaction transaction = adminWebContext.Transactions.Where(t => t.ID == id).SingleOrDefault();
+
+			return transaction;
+		}
+		#endregion
+
+		#region Notifications
+		/// <summary>
+		/// Function that returns all notifications
+		/// </summary>
+		/// <returns>List<Notification></returns>
+		public List<Notification> GetAllNotifications()
+		{
+			List<Notification> allNotifications = adminWebContext.Notifications.ToList();
+
+			return allNotifications;
+		}
 		
+		/// <summary>
+		/// Function that returns notification by ID
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>Notification</returns>
+		public Notification GetNotificationByID(int id)
+		{
+			Notification notification = adminWebContext.Notifications.Where(n => n.ID == id).SingleOrDefault();
+
+			return notification;
+		}
+		#endregion
+
 		/// <summary>
 		/// Function that saves DB
 		/// </summary>
