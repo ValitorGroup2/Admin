@@ -31,33 +31,36 @@
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            Starfsmaður
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Amount)
+            Færslunúmer
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StaffID)
+            Dagssetning
         </th>
+        <th>
+            Upphæð
+        </th>
+        
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
+           @Html.ActionLink(item.Staff.Name, "Details", new { id = item.ID })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Amount)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StaffID)
-        </td>
-        <td>
-			@Html.ActionLink("Details", "Details", new { id=item.ID }, new { @class = "btn btn-primary btn-sm"})
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-white btn-sm"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-white btn-sm"})
-        </td>
+        
     </tr>
 }
 
