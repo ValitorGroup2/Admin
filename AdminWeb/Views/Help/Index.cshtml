@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Algengar spurningar";
+}
+<h2>@ViewBag.Title</h2>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+<div id="accordion">
+    <h3>Hvað er Vasinn?</h3>
+    <div>
+        <p>
+            Vasinn er app sem gerir snjallsímann þinn að posaþjónustu.
+        </p>
+    </div>
+    <h3>Hvernig stofna ég aðgang?</h3>
+    <div>
+        <p>
+            Á forsíðu ferðu í nýskrá og þar slærðu inn upplýsinga um þig sem þarf til að stofna aðgang.
+        </p>
+    </div>
+    
+</div>
+<script src="~/Scripts/jquery-ui-1.10.4.custom.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/html" href="~/Content/jquery-ui-1.10.4.custom.css" />
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
