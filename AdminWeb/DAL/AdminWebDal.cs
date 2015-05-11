@@ -131,6 +131,31 @@ namespace AdminWeb.DAL
 		}
 		#endregion
 
+		#region Notifications
+		/// <summary>
+		/// Function that returns all notifications
+		/// </summary>
+		/// <returns>List<Notification></returns>
+		public List<Notification> GetAllNotifications()
+		{
+			List<Notification> allNotifications = adminWebContext.Notifications.ToList();
+
+			return allNotifications;
+		}
+		
+		/// <summary>
+		/// Function that returns notification by ID
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>Notification</returns>
+		public Notification GetNotificationByID(int id)
+		{
+			Notification notification = adminWebContext.Notifications.Where(n => n.ID == id).SingleOrDefault();
+
+			return notification;
+		}
+		#endregion
+
 		/// <summary>
 		/// Function that saves DB
 		/// </summary>

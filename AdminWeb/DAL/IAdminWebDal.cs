@@ -22,6 +22,11 @@ namespace AdminWeb.DAL
 		Transaction GetTransactionByID(int id);
 		#endregion
 
+		#region Notification functions
+		List<Notification> GetAllNotifications();
+		Notification GetNotificationByID(int id);
+		#endregion
+
 		Company GetCompanyByCompanyID(int id);
 	}
 }
