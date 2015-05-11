@@ -5,21 +5,19 @@
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-4">
+    <div class="col-sm-12">
         <h2>Skrá nýjan starfsmann</h2>
         <ol class="breadcrumb">
             <li>
-                @Html.ActionLink("Forsíða", "Index")
+                @Html.ActionLink("Forsíða", "Index", "Home")
+            </li>
+            <li>
+            @Html.ActionLink("Starfsmannayfirlit", "Index")
             </li>
             <li class="active">
                 <strong>Skrá nýjan starfsmann</strong>
             </li>
         </ol>
-    </div>
-    <div class="col-sm-8">
-        <div class="title-action">
-			@Html.ActionLink("Yfirlit starfsmanna", "Index", null, new { @class = "btn btn-primary"})
-        </div>
     </div>
 </div>
 
@@ -27,7 +25,7 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>Nýr starfsmaður</h5>
