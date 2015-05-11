@@ -1,24 +1,24 @@
 ﻿@model AdminWeb.DAL.Connections.Staff
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Bæta við starfsmanni";
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>Create</h2>
+        <h2>Skrá nýjan starfsmann</h2>
         <ol class="breadcrumb">
             <li>
-                @Html.ActionLink("List", "Index")
+                @Html.ActionLink("Forsíða", "Index")
             </li>
             <li class="active">
-                <strong>Create</strong>
+                <strong>Skrá nýjan starfsmann</strong>
             </li>
         </ol>
     </div>
     <div class="col-sm-8">
         <div class="title-action">
-			@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary"})
+			@Html.ActionLink("Yfirlit starfsmanna", "Index", null, new { @class = "btn btn-primary"})
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Create Staff</h5>
+                    <h5>Nýr starfsmaður</h5>
                 </div>
                 <div class="ibox-content">
 
@@ -42,7 +42,7 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Nafn</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name)
                 @Html.ValidationMessageFor(model => model.Name)
@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Age, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Aldur</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Age)
                 @Html.ValidationMessageFor(model => model.Age)
@@ -58,7 +58,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Netfang</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email)
                 @Html.ValidationMessageFor(model => model.Email)
@@ -66,7 +66,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Refund, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2">Leyfi til að endurgreiða?</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Refund)
                 @Html.ValidationMessageFor(model => model.Refund)
@@ -75,8 +75,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-				@Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-white"})
+                <input type="submit" value="Staðfesta" class="btn btn-primary" />
+				@Html.ActionLink("Hætta við", "Index", null, new { @class = "btn btn-white"})
             </div>
         </div>
     </div>
