@@ -31,7 +31,9 @@ namespace AdminWeb.Controllers
         // GET: Staff/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+			var staff = adminWebDB.GetStaffByID(id);
+			
+			return View(staff);
         }
 
         // GET: Staff/Create
@@ -69,16 +71,20 @@ namespace AdminWeb.Controllers
         // GET: Staff/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+			Staff staff = adminWebDB.GetStaffByID(id);
+			
+			return View(staff);
         }
 
         // POST: Staff/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Staff staff)
         {
             try
             {
                 // TODO: Add update logic here
+				staff.Company = adminWebDB.GetCompanyByCompanyID(staff.CompanyID);
+				adminWebDB.EditStaff(staff);
 
                 return RedirectToAction("Index");
             }
@@ -91,16 +97,19 @@ namespace AdminWeb.Controllers
         // GET: Staff/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+			Staff staff = adminWebDB.GetStaffByID(id);
+			
+			return View(staff);
         }
 
         // POST: Staff/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Staff staff)
         {
             try
             {
                 // TODO: Add delete logic here
+				adminWebDB.DeleteStaff(staff.ID);
 
                 return RedirectToAction("Index");
             }

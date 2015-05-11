@@ -64,7 +64,6 @@ namespace AdminWeb.DAL
 			tempStaff.Name = s.Name;
 			tempStaff.Password = s.Password;
 			tempStaff.Refund = s.Refund;
-			tempStaff.Transactions = s.Transactions;
 
 			SaveDB();
 		}
