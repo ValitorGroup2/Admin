@@ -17,7 +17,17 @@ namespace AdminWeb.DAL
 		}
 		#endregion
 
+		/// <summary>
+		/// Function that returns AspNet user by name
+		/// </summary>
+		/// <param name="userName"></param>
+		/// <returns>AspNetUser</returns>
+		public AspNetUser GetUserByName(string userName)
+		{
+			AspNetUser user = accountContext.AspNetUsers.Where(u => u.UserName == userName).SingleOrDefault();
 
+			return user;
+		}
 
 		#region Dispose
 		private bool disposed = false;

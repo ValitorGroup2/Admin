@@ -2,49 +2,49 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="AdminWebDal">
   <DataContextMoniker Name="/AdminWebDalDataContext" />
   <nestedChildShapes>
-    <classShape Id="5d2aaca0-1364-45a5-977a-d77e2ff04b99" absoluteBounds="0.75, 1, 2, 2.7324039713541666">
-      <DataClassMoniker Name="/AdminWebDalDataContext/Company" />
-      <nestedChildShapes>
-        <elementListCompartment Id="47e791e6-b903-4dc8-96d6-ef19eb48d4b5" absoluteBounds="0.765, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="81a1ec7b-725a-4146-9fac-9a66570804fc" absoluteBounds="6.25, 1.5, 2, 1.5785953776041666">
+    <classShape Id="7d60a86b-92e9-4185-a617-c5b12c105fde" absoluteBounds="6.25, 1.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/AdminWebDalDataContext/Transaction" />
       <nestedChildShapes>
-        <elementListCompartment Id="55a50538-51d1-4814-a463-3012df2f4111" absoluteBounds="6.265, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ac062ab1-1d13-494f-a21a-aac8dbdb8af7" absoluteBounds="6.265, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3ecbbe87-78d1-40ca-88db-cf74fcab582a" absoluteBounds="9, 1.5, 2, 1.5785953776041666">
+    <classShape Id="3c1d9ce9-e7e3-406d-9e77-62ae14c85d7c" absoluteBounds="0.75, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/AdminWebDalDataContext/Company" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c9f234e-55c1-42d2-8a1f-2e8033445f01" absoluteBounds="0.765, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="582183c9-6d07-42df-bc0f-505b2434a777" absoluteBounds="9, 1.5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/AdminWebDalDataContext/Notification" />
       <nestedChildShapes>
-        <elementListCompartment Id="f30706bd-26ca-47d6-965f-8583d4b2d599" absoluteBounds="9.015, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="78408859-b34f-4bd8-8f51-9ec33794f0af" absoluteBounds="9.015, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="08fc6c3b-d255-4409-94e3-6c3c62f69d9c" absoluteBounds="3.5, 1.25, 2, 2.1554996744791666">
+    <classShape Id="46a7cc34-9b65-4685-aa50-ce7b8f841864" absoluteBounds="3.5, 1.25, 2, 2.1554996744791666">
       <DataClassMoniker Name="/AdminWebDalDataContext/Staff" />
       <nestedChildShapes>
-        <elementListCompartment Id="8a8be34e-2780-47e3-87da-b19d8ddd1c57" absoluteBounds="3.515, 1.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4792ed58-b49e-40a8-9805-a9cec44737a6" absoluteBounds="3.515, 1.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(8.25 : 2.28929768880208); (9 : 2.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/AdminWebDalDataContext/Transaction/Transaction_Notification" />
       <nodes>
-        <classShapeMoniker Id="81a1ec7b-725a-4146-9fac-9a66570804fc" />
-        <classShapeMoniker Id="3ecbbe87-78d1-40ca-88db-cf74fcab582a" />
+        <classShapeMoniker Id="7d60a86b-92e9-4185-a617-c5b12c105fde" />
+        <classShapeMoniker Id="582183c9-6d07-42df-bc0f-505b2434a777" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 2.28929768880208); (6.25 : 2.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/AdminWebDalDataContext/Staff/Staff_Transaction" />
       <nodes>
-        <classShapeMoniker Id="08fc6c3b-d255-4409-94e3-6c3c62f69d9c" />
-        <classShapeMoniker Id="81a1ec7b-725a-4146-9fac-9a66570804fc" />
+        <classShapeMoniker Id="46a7cc34-9b65-4685-aa50-ce7b8f841864" />
+        <classShapeMoniker Id="7d60a86b-92e9-4185-a617-c5b12c105fde" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 2.32774983723958); (3.5 : 2.32774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/AdminWebDalDataContext/Company/Company_Staff" />
       <nodes>
-        <classShapeMoniker Id="5d2aaca0-1364-45a5-977a-d77e2ff04b99" />
-        <classShapeMoniker Id="08fc6c3b-d255-4409-94e3-6c3c62f69d9c" />
+        <classShapeMoniker Id="3c1d9ce9-e7e3-406d-9e77-62ae14c85d7c" />
+        <classShapeMoniker Id="46a7cc34-9b65-4685-aa50-ce7b8f841864" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

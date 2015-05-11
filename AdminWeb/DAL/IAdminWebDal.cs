@@ -13,5 +13,6 @@ namespace AdminWeb.DAL
 		void CreateStaff(Staff s);
 		void EditStaff(Staff s);
 		void DeleteStaff(int id);
+		Company GetCompanyByCompanyID(int id);
 	}
 }
