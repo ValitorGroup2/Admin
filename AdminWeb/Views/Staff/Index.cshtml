@@ -6,10 +6,10 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-4">
-        <h2>Index</h2>
+        <h2>Starfsmannaaðgangar</h2>
         <ol class="breadcrumb">
             <li class="active">
-                <strong>Staff</strong>
+                <strong>Starfsmannaaðgangar</strong>
             </li>
         </ol>
     </div>
@@ -21,9 +21,9 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>List of Staff</h5>
+                    <h5>Listi yfir starfsmannaaðganga</h5>
 					<div class="ibox-tools">
-						@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs"})
+						@Html.ActionLink("Stofna aðgang", "Create", null, new { @class = "btn btn-primary btn-xs"})
 					</div>
                 </div>
                 <div class="ibox-content">
@@ -31,22 +31,19 @@
 <table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Notandanafn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Age)
+            Lykilorð
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Aldur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Refund)
+            Tölvupóstur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CompanyID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
+            Má endurgreiða
         </th>
         <th></th>
     </tr>
@@ -55,6 +52,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Age)
@@ -66,15 +66,7 @@
             @Html.DisplayFor(modelItem => item.Refund)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CompanyID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-			@Html.ActionLink("Details", "Details", new { id=item.ID }, new { @class = "btn btn-primary btn-sm"})
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-white btn-sm"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-white btn-sm"})
+			@Html.ActionLink("Skoða", "Details", new { id=item.ID }, new { @class = "btn btn-primary btn-sm"})
         </td>
     </tr>
 }
