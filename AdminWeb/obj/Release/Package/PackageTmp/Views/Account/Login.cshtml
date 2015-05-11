@@ -1,4 +1,4 @@
-﻿@model Inspinia_MVC5_SeedProject.Models.LoginViewModel
+﻿@model AdminWeb.Models.LoginViewModel
 
 @{
     Layout = null;
@@ -28,8 +28,8 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Welcom in Inspinia App</h4>
-                <small>Use a local account to log in.</small>
+                <h4>Velkomin á Þjónustuvef Vasans</h4>
+                <small>Vinsamlegast skráðu þig inn.</small>
                 <hr />
                 @Html.ValidationSummary(true)
                 <div class="form-group">
@@ -56,12 +56,9 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-8">
-                        <input type="submit" value="Log in" class="btn btn-primary" />
+                        <input type="submit" value="Innskrá" class="btn btn-primary" />
                     </div>
                 </div>
-                <p>
-                    @Html.ActionLink("Register", "Register") if you don't have a local account.
-                </p>
             }
         </div>
     </div>
