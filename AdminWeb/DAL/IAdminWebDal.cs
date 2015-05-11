@@ -27,6 +27,8 @@ namespace AdminWeb.DAL
 		Notification GetNotificationByID(int id);
 		#endregion
 
+		#region Company
 		Company GetCompanyByCompanyID(int id);
+		#endregion
 	}
 }

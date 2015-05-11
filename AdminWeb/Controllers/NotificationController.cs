@@ -16,7 +16,7 @@ namespace AdminWeb.Controllers
 		public NotificationController()
         {
 			this.adminWebDB = new AdminWebDal(new AdminWebDalDataContext());
-			this.accountDB = new AccountDal(new AccountDataContext());
+			this.accountDB = new AccountDal(new AccountDataContext(), new AdminWebDalDataContext());
         }
 		
 		// GET: Notification

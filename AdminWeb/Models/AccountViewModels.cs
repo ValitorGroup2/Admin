@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AdminWeb.DAL.Connections;
+using System.ComponentModel.DataAnnotations;
 
 namespace AdminWeb.Models
 {
@@ -26,6 +27,8 @@ namespace AdminWeb.Models
         [Display(Name = "Confirm new password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+		public Company Company { get; set; }
     }
 
     public class LoginViewModel

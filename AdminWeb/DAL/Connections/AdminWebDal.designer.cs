@@ -334,8 +334,6 @@ namespace AdminWeb.DAL.Connections
 		
 		private string _Phone;
 		
-		private string _LogoPath;
-		
 		private EntitySet<Staff> _Staffs;
 		
     #region Extensibility Method Definitions
@@ -360,8 +358,6 @@ namespace AdminWeb.DAL.Connections
     partial void OnEmailChanged();
     partial void OnPhoneChanging(string value);
     partial void OnPhoneChanged();
-    partial void OnLogoPathChanging(string value);
-    partial void OnLogoPathChanged();
     #endregion
 		
 		public Company()
@@ -546,26 +542,6 @@ namespace AdminWeb.DAL.Connections
 					this._Phone = value;
 					this.SendPropertyChanged("Phone");
 					this.OnPhoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogoPath", DbType="NVarChar(MAX)")]
-		public string LogoPath
-		{
-			get
-			{
-				return this._LogoPath;
-			}
-			set
-			{
-				if ((this._LogoPath != value))
-				{
-					this.OnLogoPathChanging(value);
-					this.SendPropertyChanging();
-					this._LogoPath = value;
-					this.SendPropertyChanged("LogoPath");
-					this.OnLogoPathChanged();
 				}
 			}
 		}

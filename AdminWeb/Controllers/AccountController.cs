@@ -9,15 +9,22 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using AdminWeb.Models;
+using AdminWeb.DAL;
+using AdminWeb.DAL.Connections;
 
 namespace AdminWeb.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        public AccountController()
+		private IAdminWebDal adminWebDB;
+		private IAccountDal accountDB;
+
+		public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
+			this.adminWebDB = new AdminWebDal(new AdminWebDalDataContext());
+			this.accountDB = new AccountDal(new AccountDataContext(), new AdminWebDalDataContext());
         }
 
         public AccountController(UserManager<ApplicationUser> userManager)
@@ -95,6 +102,22 @@ namespace AdminWeb.Controllers
             return View(model);
         }
 
+		[HttpPost]
+		public ActionResult EditInfo(Company company)
+		{
+			try
+			{
+				// TODO: Add update logic here
+				accountDB.EditUserInfo(company);
+
+				return RedirectToAction("Manage");
+			}
+			catch
+			{
+				return View();
+			}
+		}
+
         //
         // POST: /Account/Disassociate
         [HttpPost]
@@ -119,14 +142,19 @@ namespace AdminWeb.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                message == ManageMessageId.ChangePasswordSuccess ? "Lykilorði þínu hefur verið breytt."
+                : message == ManageMessageId.SetPasswordSuccess ? "Lykilorð þitt hefur verið vistað."
+                : message == ManageMessageId.Error ? "Upp kom villa."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
-            return View();
+
+			var user = accountDB.GetUserByName(User.Identity.Name);
+			
+			ManageUserViewModel manageVM = new ManageUserViewModel();
+			manageVM.Company = adminWebDB.GetCompanyByCompanyID(user.CompanyID);
+
+            return View(manageVM);
         }
 
         //

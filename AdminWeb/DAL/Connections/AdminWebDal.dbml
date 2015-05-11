@@ -21,7 +21,6 @@
       <Column Name="BankAccount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="LogoPath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Company_Staff" Member="Staffs" ThisKey="ID" OtherKey="CompanyID" Type="Staff" />
     </Type>
   </Table>

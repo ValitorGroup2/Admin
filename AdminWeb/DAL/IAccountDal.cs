@@ -9,5 +9,6 @@ namespace AdminWeb.DAL
 	public interface IAccountDal : IDisposable
 	{
 		AspNetUser GetUserByName(string userName);
+		void EditUserInfo(Company company);
 	}
 }
