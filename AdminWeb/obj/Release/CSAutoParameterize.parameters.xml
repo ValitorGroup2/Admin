@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="vasinn_dbConnectionString-Web.config Connection String" description="vasinn_dbConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=dacxir12kl.database.windows.net;Initial Catalog=vasinn_db;Persist Security Info=True;User ID=vasinn;Password=luxusKaffi1:)" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\GrétarMár\\Documents\\GitHub\\Admin\\AdminWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='vasinn_dbConnectionString']/@connectionString" />
-  </parameter>
-</parameters>
