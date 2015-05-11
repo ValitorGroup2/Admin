@@ -17,6 +17,53 @@ namespace AdminWeb.DAL
 		}
 		#endregion
 
+		public List<Staff> GetAllStaff()
+		{
+			List<Staff> allStaff = adminWebContext.Staffs.ToList();
+
+			return allStaff;
+		}
+
+		public Staff GetStaffByID(int id)
+		{
+			Staff staff = adminWebContext.Staffs.Where(s => s.ID == id).SingleOrDefault();
+
+			return staff;
+		}
+
+		public void CreateStaff(Staff s)
+		{
+			adminWebContext.Staffs.InsertOnSubmit(s);
+			SaveDB();
+		}
+
+		public void EditStaff(Staff s)
+		{
+			Staff tempStaff = GetStaffByID(s.ID);
+
+			tempStaff.Age = s.Age;
+			tempStaff.CompanyID = s.CompanyID;
+			tempStaff.Email = s.Email;
+			tempStaff.Name = s.Name;
+			tempStaff.Password = s.Password;
+			tempStaff.Refund = s.Refund;
+			tempStaff.Transactions = s.Transactions;
+
+			SaveDB();
+		}
+
+		public void DeleteStaff(int id)
+		{
+			Staff tempStaff = GetStaffByID(id);
+
+			adminWebContext.Staffs.DeleteOnSubmit(tempStaff);
+			SaveDB();
+		}
+
+		public void SaveDB()
+		{
+			adminWebContext.SubmitChanges();
+		}
 
 
 		#region Dispose
