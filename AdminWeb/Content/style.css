@@ -37,6 +37,14 @@ h5 {
   margin-top: 5px;
   font-weight: 600;
 }
+/* Added styles */
+span.headerinfo img, span.headerinfo p {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
