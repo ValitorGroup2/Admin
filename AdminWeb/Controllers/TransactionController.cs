@@ -29,6 +29,7 @@ namespace AdminWeb.Controllers
         // GET: Transaction/Details/5
         public ActionResult Details(int id)
         {
+
 			var transaction = adminWebDB.GetTransactionByID(id);
 			
 			return View(transaction);

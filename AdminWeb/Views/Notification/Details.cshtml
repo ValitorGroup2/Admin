@@ -5,14 +5,17 @@
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-4">
+    <div class="col-sm-12">
         <h2>Details</h2>
         <ol class="breadcrumb">
             <li>
-                @Html.ActionLink("List", "Index")
+                @Html.ActionLink("Forsíða", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Tilkynningar", "Index")
             </li>
             <li class="active">
-                <strong>Details</strong>
+                <strong>Nánar um tilkynningu</strong>
             </li>
         </ol>
     </div>
@@ -33,7 +36,14 @@
 
 				    <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Date)
+            Starfsmaður
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction.Staff.Name)
+        </dd>
+        <dt>
+            Dagsetning
         </dt>
 
         <dd>
@@ -41,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Tilkynning
         </dt>
 
         <dd>
@@ -49,18 +59,24 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TransactionID)
+            Færslunúmer
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.TransactionID)
         </dd>
+        <dt>
+            Upphæð færslu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction.Amount)
+        </dd>
 
     </dl>
 
 
-	    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary"})
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-white"})
+    @Html.ActionLink("Til baka í tilkynningar", "Index", null, new { @class = "btn btn-white"})
 
                 </div>
             </div>
