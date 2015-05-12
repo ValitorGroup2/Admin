@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<AdminWeb.DAL.Connections.Notification>
 
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tilkynningar";
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-sm-12">
-        <h2>Index</h2>
+        <h2>Tilkynningar</h2>
         <ol class="breadcrumb">
             <li>
                 @Html.ActionLink("Forsíða", "Index", "Home")
             </li>
             <li class="active">
-                <strong>Notification</strong>
+                <strong>Tilkynningar</strong>
             </li>
         </ol>
     </div>
@@ -46,7 +47,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @Html.DisplayFor(modelItem => item.Transaction.Staff.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
@@ -59,8 +60,6 @@
         </td>
         <td>
 			@Html.ActionLink("Upplýsingar", "Details", new { id=item.ID }, new { @class = "btn btn-primary btn-sm"})
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-white btn-sm"})
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-white btn-sm"})
         </td>
     </tr>
 }

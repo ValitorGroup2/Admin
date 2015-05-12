@@ -37,7 +37,7 @@
             Færslunúmer
         </th>
         <th>
-            Dagssetning
+            Dagsetning
         </th>
         <th>
             Upphæð
@@ -49,7 +49,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-           @Html.ActionLink(item.Staff.Name, "Details", new { id = item.ID })
+            @Html.DisplayFor(modelItem => item.Staff.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ID)
@@ -60,7 +60,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Amount)
         </td>
-        
+        <td>
+            @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+        </td>
     </tr>
 }
 
