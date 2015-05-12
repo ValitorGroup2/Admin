@@ -56,11 +56,12 @@ namespace AdminWeb.Controllers
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+
+					return RedirectToLocal(returnUrl);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "Vitlaust notandanafn og/eða lykilorð.");
                 }
             }
 
@@ -85,7 +86,13 @@ namespace AdminWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+				Company company = new Company();
+				company.Name = model.UserName;
+				adminWebDB.CreateCompany(company);
+
+				int companyID = adminWebDB.GetCompanyByName(model.UserName).ID;
+
+				var user = new ApplicationUser() { UserName = model.UserName, CompanyID = companyID };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

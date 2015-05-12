@@ -45,6 +45,26 @@ namespace AdminWeb
             bundles.Add(new StyleBundle("~/font-awesome/css").Include(
                       "~/fonts/font-awesome/css/font-awesome.min.css"));
 
+			// iCheck css styles
+			bundles.Add(new StyleBundle("~/Content/plugins/iCheck/iCheckStyles").Include(
+					  "~/Content/plugins/iCheck/custom.css"));
+
+			// iCheck
+			bundles.Add(new ScriptBundle("~/plugins/iCheck").Include(
+					  "~/Scripts/plugins/iCheck/icheck.min.js"));
+
+			// wizardSteps styles
+			bundles.Add(new StyleBundle("~/plugins/wizardStepsStyles").Include(
+					  "~/Content/plugins/steps/jquery.steps.css"));
+
+			// wizardSteps 
+			bundles.Add(new ScriptBundle("~/plugins/wizardSteps").Include(
+					  "~/Scripts/plugins/staps/jquery.steps.min.js"));
+
+			// validate 
+			bundles.Add(new ScriptBundle("~/plugins/validate").Include(
+					  "~/Scripts/plugins/validate/jquery.validate.min.js"));
+
         }
     }
 }

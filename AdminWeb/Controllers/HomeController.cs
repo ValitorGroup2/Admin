@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AdminWeb.DAL;
+using AdminWeb.DAL.Connections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +11,31 @@ namespace AdminWeb.Controllers
 	[Authorize]
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            ViewData["SubTitle"] = "I be out! ";
-            ViewData["Message"] = "Jeeee body!";
-            ViewData["Strengur"] = "Djamm í kvöld...!";
+		private IAdminWebDal adminWebDB;
+		private IAccountDal accountDB;
 
-            return View();
+		public HomeController()
+        {
+			this.adminWebDB = new AdminWebDal(new AdminWebDalDataContext());
+			this.accountDB = new AccountDal(new AccountDataContext(), new AdminWebDalDataContext());
+        }
+		
+		public ActionResult Index()
+        {
+			Company company = adminWebDB.GetCompanyByName(User.Identity.Name);
+
+			if (String.IsNullOrEmpty(company.SSN))
+			{
+				return View("CompanyWizard", company);
+			}
+			else
+			{
+				ViewData["SubTitle"] = "I be out! ";
+				ViewData["Message"] = "Jeeee body!";
+				ViewData["Strengur"] = "Djamm í kvöld...!";
+
+				return View();
+			}
         }
 
         public ActionResult Minor()

@@ -80,18 +80,6 @@ namespace AdminWeb.DAL
 			adminWebContext.Staffs.DeleteOnSubmit(tempStaff);
 			SaveDB();
 		}
-
-		/// <summary>
-		/// Function that returns Company from DB by ID
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns>Company</returns>
-		public Company GetCompanyByCompanyID(int id)
-		{
-			Company company = adminWebContext.Companies.Where(c => c.ID == id).SingleOrDefault();
-
-			return company;
-		}
 		#endregion
 
 		#region Transactions
@@ -153,6 +141,42 @@ namespace AdminWeb.DAL
 			Notification notification = adminWebContext.Notifications.Where(n => n.ID == id).SingleOrDefault();
 
 			return notification;
+		}
+		#endregion
+
+		#region Company
+		/// <summary>
+		/// Function that returns Company from DB by ID
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>Company</returns>
+		public Company GetCompanyByCompanyID(int id)
+		{
+			Company company = adminWebContext.Companies.Where(c => c.ID == id).SingleOrDefault();
+
+			return company;
+		}
+
+		/// <summary>
+		/// Function that returns company from name
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns>Company</returns>
+		public Company GetCompanyByName(string name)
+		{
+			Company company = adminWebContext.Companies.Where(c => c.Name == name).SingleOrDefault();
+
+			return company;
+		}
+
+		/// <summary>
+		/// Function that creates new company in DB
+		/// </summary>
+		/// <param name="company"></param>
+		public void CreateCompany(Company company)
+		{
+			adminWebContext.Companies.InsertOnSubmit(company);
+			SaveDB();
 		}
 		#endregion
 
