@@ -9,7 +9,8 @@ using System.Web.Security;
 
 namespace AdminWeb.Controllers
 {
-    public class StaffController : Controller
+	[Authorize]
+	public class StaffController : Controller
     {
 		private IAdminWebDal adminWebDB;
 		private IAccountDal accountDB;

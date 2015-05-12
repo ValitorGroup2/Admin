@@ -8,7 +8,8 @@ using System.Web.Mvc;
 
 namespace AdminWeb.Controllers
 {
-    public class NotificationController : Controller
+	[Authorize]
+	public class NotificationController : Controller
     {
         private IAdminWebDal adminWebDB;
 		private IAccountDal accountDB;

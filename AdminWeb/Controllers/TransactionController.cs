@@ -8,7 +8,8 @@ using System.Web.Mvc;
 
 namespace AdminWeb.Controllers
 {
-    public class TransactionController : Controller
+	[Authorize]
+	public class TransactionController : Controller
     {
         private IAdminWebDal adminWebDB;
 
