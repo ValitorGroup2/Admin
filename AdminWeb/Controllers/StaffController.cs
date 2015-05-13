@@ -1,5 +1,6 @@
 ﻿using AdminWeb.DAL;
 using AdminWeb.DAL.Connections;
+using AdminWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,11 @@ namespace AdminWeb.Controllers
         // GET: Staff/Details/5
         public ActionResult Details(int id)
         {
-			var staff = adminWebDB.GetStaffByID(id);
+			StaffDetailsViewModel staffDetailsVM = new StaffDetailsViewModel();
+			staffDetailsVM.Staff = adminWebDB.GetStaffByID(id);
+			staffDetailsVM.Transactions = adminWebDB.GetAllTransactionsForUser(id);
 			
-			return View(staff);
+			return View(staffDetailsVM);
         }
 
         // GET: Staff/Create

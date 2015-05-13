@@ -5,23 +5,26 @@
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-12">
-        <h2>Delete</h2>
+    <div class="col-sm-10">
+        <h2>@ViewBag.Title</h2>
         <ol class="breadcrumb">
             <li>
                 @Html.ActionLink("Forsíða", "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Starfsmannayfirlit", "Index")
+                @Html.ActionLink("Starfsmannaaðgangar", "Index")
+            </li>
+            <li>
+                @Html.ActionLink("Starfsmaður", "Details/" + Model.ID)
             </li>
             <li class="active">
                 <strong>Eyða starfsmanni</strong>
             </li>
         </ol>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-2">
         <div class="title-action">
-			@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary"})
+			@Html.ActionLink("Tilbaka", "Details/" + Model.ID, null, new { @class = "btn btn-primary"})
         </div>
     </div>
 </div>
@@ -83,8 +86,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-primary" />
-            @Html.ActionLink("Til baka í starfsmenn", "Index", null, new { @class = "btn btn-white"})
+            <input type="submit" value="Eyða" class="btn btn-danger" />
+				@Html.ActionLink("Hætta við", "Details/" + Model.ID, null, new { @class = "btn btn-white"})
         </div>
     }
 

@@ -5,19 +5,27 @@
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-12">
-        <h2>Breyta starfsmanni</h2>
+    <div class="col-sm-10">
+        <h2>@ViewBag.Title</h2>
         <ol class="breadcrumb">
             <li>
                 @Html.ActionLink("Forsíða", "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Starfsmannayfirlit", "Index")
+                @Html.ActionLink("Starfsmannaaðgangar", "Index")
+            </li>
+            <li>
+                @Html.ActionLink("Starfsmaður", "Details/" + Model.ID)
             </li>
             <li class="active">
-                <strong>Breyta starfsmannaupplýsingum</strong>
+                <strong>@ViewBag.Title</strong>
             </li>
         </ol>
+    </div>
+    <div class="col-sm-2">
+        <div class="title-action">
+            @Html.ActionLink("Tilbaka", "Details/" + Model.ID, "Staff", null, new { @class = "btn btn-primary" })
+        </div>
     </div>
  
 </div>
@@ -86,7 +94,7 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Vista" class="btn btn-primary" />
-				@Html.ActionLink("Hætta við", "Index", null, new { @class = "btn btn-white"})
+				@Html.ActionLink("Hætta við", "Details/" + Model.ID, null, new { @class = "btn btn-white"})
             </div>
         </div>
     </div>

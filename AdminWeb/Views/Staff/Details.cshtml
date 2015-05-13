@@ -1,35 +1,40 @@
-﻿@model AdminWeb.DAL.Connections.Staff
+﻿@model AdminWeb.Models.StaffDetailsViewModel
 
 @{
     ViewBag.Title = "Upplýsingar";
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-12">
-        <h2>Upplýsingar</h2>
+    <div class="col-sm-10">
+        <h2>@ViewBag.Title</h2>
         <ol class="breadcrumb">
             <li>
                 @Html.ActionLink("Forsíða", "Index", "Home")
             </li>
             <li>
-                @Html.ActionLink("Upplýsingar", "Index")
+                @Html.ActionLink("Starfsmannaaðgangar", "Index")
             </li>
             <li class="active">
-                <strong>Upplýsingar um @Model.Name</strong>
+                <strong>Upplýsingar um @Model.Staff.Name</strong>
             </li>
         </ol>
     </div>
+    <div class="col-sm-2">
+        <div class="title-action">
+            @Html.ActionLink("Til baka", "Index", "Staff", null, new { @class = "btn btn-primary" })
+        </div>
     </div>
+</div>
 
 
 
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>@ViewBag.Title um @Model.Name</h5>
+                    <h5>@ViewBag.Title um @Model.Staff.Name</h5>
                 </div>
                 <div class="ibox-content">
 
@@ -40,7 +45,7 @@
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Name)
+                            @Html.DisplayFor(model => model.Staff.Name)
                         </dd>
 
                         <dt>
@@ -48,7 +53,7 @@
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Age)
+                            @Html.DisplayFor(model => model.Staff.Age)
                         </dd>
 
                         <dt>
@@ -56,7 +61,7 @@
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Email)
+                            @Html.DisplayFor(model => model.Staff.Email)
                         </dd>
 
                         <dt>
@@ -64,7 +69,7 @@
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Refund)
+                            @Html.DisplayFor(model => model.Staff.Refund)
                         </dd>
 
                         <dt>
@@ -72,18 +77,68 @@
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Password)
+                            @Html.DisplayFor(model => model.Staff.Password)
                         </dd>
 
     </dl>
 
 
-	    @Html.ActionLink("Breyta starfsmanni", "Edit", new { id = Model.ID }, new { @class = "btn btn-primary"})
-    @Html.ActionLink("Til baka í yfirlit", "Index", null, new { @class = "btn btn-white"})
+	    @Html.ActionLink("Breyta starfsmanni", "Edit", new { id = Model.Staff.ID }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Eyða starfsmanni", "Delete/" + Model.Staff.ID, null, new { @class = "btn btn-danger" })
 
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Færslur @Model.Staff.Name</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                Færslunúmer
+                            </th>
+                            <th>
+                                Starfsmaður
+                            </th>
+                            <th>
+                                Dagsetning
+                            </th>
+                            <th>
+                                Upphæð
+                            </th>
+
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model.Transactions)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Amount)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
  </div>
 

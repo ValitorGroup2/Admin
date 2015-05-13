@@ -150,6 +150,8 @@ namespace AdminWeb.DAL.Connections
 		
 		private int _CompanyID;
 		
+		private System.Nullable<bool> _Verified;
+		
 		private EntitySet<AspNetUserClaim> _AspNetUserClaims;
 		
 		private EntitySet<AspNetUserLogin> _AspNetUserLogins;
@@ -186,6 +188,8 @@ namespace AdminWeb.DAL.Connections
     partial void OnUserNameChanged();
     partial void OnCompanyIDChanging(int value);
     partial void OnCompanyIDChanged();
+    partial void OnVerifiedChanging(System.Nullable<bool> value);
+    partial void OnVerifiedChanged();
     #endregion
 		
 		public AspNetUser()
@@ -452,6 +456,26 @@ namespace AdminWeb.DAL.Connections
 					this._CompanyID = value;
 					this.SendPropertyChanged("CompanyID");
 					this.OnCompanyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Verified", DbType="Bit")]
+		public System.Nullable<bool> Verified
+		{
+			get
+			{
+				return this._Verified;
+			}
+			set
+			{
+				if ((this._Verified != value))
+				{
+					this.OnVerifiedChanging(value);
+					this.SendPropertyChanging();
+					this._Verified = value;
+					this.SendPropertyChanged("Verified");
+					this.OnVerifiedChanged();
 				}
 			}
 		}

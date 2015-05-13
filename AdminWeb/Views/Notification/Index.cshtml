@@ -6,16 +6,21 @@
 }
 
 <div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-12">
-        <h2>Tilkynningar</h2>
+    <div class="col-sm-10">
+        <h2>@ViewBag.Title</h2>
         <ol class="breadcrumb">
             <li>
                 @Html.ActionLink("Forsíða", "Index", "Home")
             </li>
             <li class="active">
-                <strong>Tilkynningar</strong>
+                <strong>@ViewBag.Title</strong>
             </li>
         </ol>
+    </div>
+    <div class="col-sm-2">
+        <div class="title-action">
+            @Html.ActionLink("Tilbaka", "Index", "Home", null, new { @class = "btn btn-primary" })
+        </div>
     </div>
 </div>
 
@@ -25,7 +30,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                <h5>Tilkynningar</h5>
+                <h5>@ViewBag.Title</h5>
             </div>
                 <div class="ibox-content">
 
@@ -35,13 +40,13 @@
             Starfsmaður
         </th>
         <th>
-            Dagsettning
+            Færslunúmer
         </th>
         <th>
             Skilaboð
         </th>
         <th>
-            Færslunúmer
+            Dagsetning
         </th>
         <th></th>
     </tr>
@@ -52,13 +57,13 @@
             @Html.DisplayFor(modelItem => item.Transaction.Staff.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @Html.DisplayFor(modelItem => item.TransactionID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TransactionID)
+            @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
 			@Html.ActionLink("Upplýsingar", "Details", new { id=item.ID }, new { @class = "btn btn-primary btn-sm"})
