@@ -65,6 +65,14 @@ namespace AdminWeb
 			bundles.Add(new ScriptBundle("~/plugins/validate").Include(
 					  "~/Scripts/plugins/validate/jquery.validate.min.js"));
 
+			// jasnyBootstrap styles
+			bundles.Add(new StyleBundle("~/plugins/jasnyBootstrapStyles").Include(
+					  "~/Content/plugins/jasny/jasny-bootstrap.min.css"));
+
+			// jasnyBootstrap 
+			bundles.Add(new ScriptBundle("~/plugins/jasnyBootstrap").Include(
+					  "~/Scripts/plugins/jasny/jasny-bootstrap.min.js"));
+
         }
     }
 }

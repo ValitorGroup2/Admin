@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace AdminWeb.Controllers
 {
-	[Authorize]
+	[Authorize(Roles = "Admin, ActiveUser")]
 	public class TransactionController : Controller
     {
         private IAdminWebDal adminWebDB;

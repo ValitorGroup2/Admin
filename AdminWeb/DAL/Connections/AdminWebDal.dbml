@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="vasinn_db" Class="AdminWebDalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=dacxir12kl.database.windows.net;Initial Catalog=vasinn_db;Persist Security Info=True;User ID=vasinn" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="vasinn_dbConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Transactions" Member="Transactions">
-    <Type Name="Transaction">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
-      <Column Name="StaffID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Transaction_Notification" Member="Notifications" ThisKey="ID" OtherKey="TransactionID" Type="Notification" />
-      <Association Name="Staff_Transaction" Member="Staff" ThisKey="StaffID" OtherKey="ID" Type="Staff" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Companies" Member="Companies">
     <Type Name="Company">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -21,7 +11,18 @@
       <Column Name="BankAccount" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AcceptedTerms" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="Company_Staff" Member="Staffs" ThisKey="ID" OtherKey="CompanyID" Type="Staff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Transactions" Member="Transactions">
+    <Type Name="Transaction">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="StaffID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Transaction_Notification" Member="Notifications" ThisKey="ID" OtherKey="TransactionID" Type="Notification" />
+      <Association Name="Staff_Transaction" Member="Staff" ThisKey="StaffID" OtherKey="ID" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Notifications" Member="Notifications">

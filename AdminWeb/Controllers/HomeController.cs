@@ -22,7 +22,9 @@ namespace AdminWeb.Controllers
 		
 		public ActionResult Index()
         {
-			Company company = adminWebDB.GetCompanyByName(User.Identity.Name);
+			int companyID = accountDB.GetUserByName(User.Identity.Name).CompanyID;
+
+			Company company = adminWebDB.GetCompanyByCompanyID(companyID);
 
 			if (String.IsNullOrEmpty(company.SSN))
 			{
@@ -37,14 +39,5 @@ namespace AdminWeb.Controllers
 				return View();
 			}
         }
-
-        public ActionResult Minor()
-        {
-            ViewData["SubTitle"] = "Simple example of second view";
-            ViewData["Message"] = "Data are passing to view by ViewData from controller";
-
-            return View();
-        }
-
     }
 }

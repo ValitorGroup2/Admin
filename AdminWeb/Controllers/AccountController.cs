@@ -117,7 +117,7 @@ namespace AdminWeb.Controllers
 				// TODO: Add update logic here
 				accountDB.EditUserInfo(company);
 
-				return RedirectToAction("Manage");
+				return RedirectToAction("Index", "Home");
 			}
 			catch
 			{

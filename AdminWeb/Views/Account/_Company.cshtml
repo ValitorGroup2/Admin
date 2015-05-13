@@ -7,14 +7,8 @@
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            <label class="control-label col-md-4">Nafn</label>
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name)
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.Name)
+        @Html.HiddenFor(model => model.SSN)
 
         <div class="form-group">
             <label class="control-label col-md-4">Heimilisfang</label>
@@ -37,14 +31,6 @@
             <div class="col-md-8">
                 @Html.EditorFor(model => model.City)
                 @Html.ValidationMessageFor(model => model.City)
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-4">Kennitala</label>
-            <div class="col-md-8">
-                @Html.EditorFor(model => model.SSN)
-                @Html.ValidationMessageFor(model => model.SSN)
             </div>
         </div>
 

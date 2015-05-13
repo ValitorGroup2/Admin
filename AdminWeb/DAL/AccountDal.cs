@@ -47,6 +47,7 @@ namespace AdminWeb.DAL
 			tempCompany.Phone = company.Phone;
 			tempCompany.SSN = company.SSN;
 			tempCompany.ZipCode = company.ZipCode;
+			tempCompany.AcceptedTerms = company.AcceptedTerms;
 
 			adminWebContext.SubmitChanges();
 		}

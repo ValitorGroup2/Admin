@@ -45,6 +45,14 @@ span.headerinfo img, span.headerinfo p {
     text-align:center;
 }
 
+.skilmalar {
+	background: #fff;
+	border: 1px solid #ddd;
+	height: 220px;
+	overflow: scroll;
+	padding: 20px;
+}
+
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
