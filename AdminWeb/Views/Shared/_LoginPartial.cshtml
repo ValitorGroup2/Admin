@@ -1,4 +1,9 @@
 ﻿@using Microsoft.AspNet.Identity
+
+@{
+    var verified = Html.Action("IsVerified", "Account");
+}
+
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
@@ -6,6 +11,16 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-top-links navbar-right">
+        @{
+            if (verified.ToString() == "True")
+            {
+                <li class="text-success">Virkur</li>
+            }
+            else
+            {
+                <li class="text-danger">Óvirkur</li>
+            }
+        }
         <li>
             @Html.ActionLink("Hæ " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>

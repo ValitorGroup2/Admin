@@ -6,6 +6,7 @@ namespace AdminWeb.Models
     public class ApplicationUser : IdentityUser
     {
 		public int CompanyID { get; set; }
+		public bool Verified { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

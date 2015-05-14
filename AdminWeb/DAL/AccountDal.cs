@@ -52,6 +52,26 @@ namespace AdminWeb.DAL
 			adminWebContext.SubmitChanges();
 		}
 
+		/// <summary>
+		/// Function that returns true if user has been verified, else false.
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>Bool</returns>
+		public bool IsVerified(int id)
+		{
+			string userID = Convert.ToString(id);
+			var user = accountContext.AspNetUsers.Where(u => u.Id == userID).SingleOrDefault();
+
+			if (user.Verified == true)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		#region Dispose
 		private bool disposed = false;
 

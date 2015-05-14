@@ -10,5 +10,6 @@ namespace AdminWeb.DAL
 	{
 		AspNetUser GetUserByName(string userName);
 		void EditUserInfo(Company company);
+		bool IsVerified(int id);
 	}
 }

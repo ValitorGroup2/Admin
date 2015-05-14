@@ -92,7 +92,7 @@ namespace AdminWeb.Controllers
 
 				int companyID = adminWebDB.GetCompanyByName(model.UserName).ID;
 
-				var user = new ApplicationUser() { UserName = model.UserName, CompanyID = companyID };
+				var user = new ApplicationUser() { UserName = model.UserName, CompanyID = companyID, Verified = false };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -390,6 +390,14 @@ namespace AdminWeb.Controllers
             }
             return false;
         }
+
+		public bool IsVerified()
+		{
+			var user = UserManager.FindById(User.Identity.GetUserId());
+			bool isVerified = user.Verified;
+
+			return isVerified;
+		}
 
         public enum ManageMessageId
         {
