@@ -1,5 +1,6 @@
 ﻿using AdminWeb.DAL;
 using AdminWeb.DAL.Connections;
+using AdminWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,11 +33,13 @@ namespace AdminWeb.Controllers
 			}
 			else
 			{
-				ViewData["SubTitle"] = "I be out! ";
-				ViewData["Message"] = "Jeeee body!";
-				ViewData["Strengur"] = "Djamm í kvöld...!";
+				DashboardViewModel dashboardVM = new DashboardViewModel();
 
-				return View();
+				dashboardVM.Staffs = adminWebDB.GetFirst5Staff();
+				dashboardVM.Transactions = adminWebDB.Get5NewestTransactions();
+				dashboardVM.Notifications = adminWebDB.Get5NewestNotifications();
+
+				return View(dashboardVM);
 			}
         }
     }

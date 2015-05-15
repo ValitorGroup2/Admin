@@ -1,8 +1,6 @@
 ﻿@using Microsoft.AspNet.Identity
 
-@{
-    var verified = Html.Action("IsVerified", "Account");
-}
+
 
 @if (Request.IsAuthenticated)
 {
@@ -12,6 +10,9 @@
 
     <ul class="nav navbar-top-links navbar-right">
         @{
+            var verified = Html.Action("IsVerified", "Account");
+
+            
             if (verified.ToString() == "True")
             {
                 <li class="text-success">Virkur</li>

@@ -30,6 +30,17 @@ namespace AdminWeb.DAL
 		}
 
 		/// <summary>
+		/// Function that returns 5 newest Staff accounts
+		/// </summary>
+		/// <returns>List of Sstaff accounts</returns>
+		public List<Staff> GetFirst5Staff()
+		{
+			List<Staff> first5Staff = adminWebContext.Staffs.OrderByDescending(s => s.ID).ToList();
+
+			return first5Staff;
+		}
+
+		/// <summary>
 		/// Function that takes in id and returns corresponding Staff
 		/// </summary>
 		/// <param name="id"></param>
@@ -95,6 +106,17 @@ namespace AdminWeb.DAL
 		}
 
 		/// <summary>
+		/// Function that returns newest 5 transactions
+		/// </summary>
+		/// <returns>List of 5 newest transactions</returns>
+		public List<Transaction> Get5NewestTransactions()
+		{
+			List<Transaction> getFirst5Transactions = adminWebContext.Transactions.OrderByDescending(t => t.Date).ToList();
+
+			return getFirst5Transactions;
+		}
+
+		/// <summary>
 		/// Function that returns all transactions for given user
 		/// </summary>
 		/// <param name="staffID"></param>
@@ -129,6 +151,17 @@ namespace AdminWeb.DAL
 			List<Notification> allNotifications = adminWebContext.Notifications.ToList();
 
 			return allNotifications;
+		}
+
+		/// <summary>
+		/// Function that returns 5 newest notifications
+		/// </summary>
+		/// <returns>List of 5 newest notifications</returns>
+		public List<Notification> Get5NewestNotifications()
+		{
+			List<Notification> get5NewestNotifiactions = adminWebContext.Notifications.OrderByDescending(n => n.Date).ToList();
+
+			return get5NewestNotifiactions;
 		}
 		
 		/// <summary>

@@ -10,6 +10,7 @@ namespace AdminWeb.DAL
 	{
 		#region Staff functions
 		List<Staff> GetAllStaff();
+		List<Staff> GetFirst5Staff();
 		Staff GetStaffByID(int id);
 		void CreateStaff(Staff s);
 		void EditStaff(Staff s);
@@ -19,11 +20,13 @@ namespace AdminWeb.DAL
 		#region Transaction functions
 		List<Transaction> GetAllTransactions();
 		List<Transaction> GetAllTransactionsForUser(int staffID);
+		List<Transaction> Get5NewestTransactions();
 		Transaction GetTransactionByID(int id);
 		#endregion
 
 		#region Notification functions
 		List<Notification> GetAllNotifications();
+		List<Notification> Get5NewestNotifications();
 		Notification GetNotificationByID(int id);
 		#endregion
 

@@ -45,6 +45,10 @@ span.headerinfo img, span.headerinfo p {
     text-align:center;
 }
 
+.LoginImage {
+    margin-bottom: 20px;
+}
+
 .skilmalar {
 	background: #fff;
 	border: 1px solid #ddd;

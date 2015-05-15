@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 namespace AdminWeb.Controllers
 {
-    public class HelpController : Controller
+    [AllowAnonymous]
+	public class HelpController : Controller
     {
-        //
+        [AllowAnonymous]
+		//
         // GET: /Help/
         public ActionResult Index()
         {

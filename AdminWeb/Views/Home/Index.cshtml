@@ -1,17 +1,337 @@
-﻿@{
+﻿@model AdminWeb.Models.DashboardViewModel
+
+@{
     ViewBag.Title = "Forsíða";
 }
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="text-center m-t-lg">
-                <h1>
-                    @ViewData["SubTitle"]
-                </h1>
-                <small>@ViewData["Message"]</small>
-                <small>@ViewData["Strengur"]</small>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-success pull-right">Mánaðarlega</span>
+                    <h5>Tekjur</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">400.000 kr.</h1>
+                    <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
+                    <small>Heildar tekjur</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-info pull-right">Árlega</span>
+                    <h5>Færslur</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">275.800</h1>
+                    <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
+                    <small>Nýjar færslur</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-primary pull-right">Í dag</span>
+                    <h5>Sýndarposar</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">6</h1>
+                    <div class="stat-percent font-bold text-navy">44% <i class="fa fa-level-up"></i></div>
+                    <small>Keyptir sýndarposar</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-danger pull-right">Vikulega</span>
+                    <h5>Tilkynningar</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">293</h1>
+                    <div class="stat-percent font-bold text-danger">38% <i class="fa fa-level-down"></i></div>
+                    <small>Tilkynningar á viku</small>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div>
+                        <span class="pull-right text-right">
+                            <small>Tekjusamanburður við 2014 í: <strong>Reykjavík</strong></small>
+                            <br />
+                            Heildar tekjur: 400.000 kr.
+                        </span>
+                        <h1 class="m-b-xs">198.992 kr.</h1>
+                        <h3 class="font-bold no-margins">
+                            Tekjur á fyrstu tveim árfjórðungum
+                        </h3>
+                        <small>Miðað við 2014.</small>
+                    </div>
+
+                    <div>
+                        <canvas id="lineChart" height="70"></canvas>
+                    </div>
+
+                    <div class="m-t-md">
+                        <small class="pull-right">
+                            <i class="fa fa-clock-o"> </i>
+                            Síðast uppfært 15.05.2015
+                        </small>
+                        <small>
+                            <strong>Sölugreining:</strong> Sala fór hægar af stað þetta árið en hefur tekið stökk síðustu mánuði.
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>5 nýjustu færslurnar</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                Færslunúmer
+                            </th>
+                            <th>
+                                Starfsmaður
+                            </th>
+                            <th>
+                                Dagsetning
+                            </th>
+                            <th>
+                                Upphæð
+                            </th>
+
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model.Transactions)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Staff.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Amount)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>5 nýjustu tilkynningarnar</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                Starfsmaður
+                            </th>
+                            <th>
+                                Færslunúmer
+                            </th>
+                            <th>
+                                Skilaboð
+                            </th>
+                            <th>
+                                Dagsetning
+                            </th>
+                            <th></th>
+                        </tr>
+                        @foreach (var item in Model.Notifications)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Transaction.Staff.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TransactionID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Date)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>5 nýjustu sýndarposarnir</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+
+                    <table class="table table-striped">
+                        <tr>
+                            <th>
+                                Notandanafn
+                            </th>
+                            <th>
+                                Lykilorð
+                            </th>
+                            <th>
+                                Aldur
+                            </th>
+                            <th>
+                                Tölvupóstur
+                            </th>
+                            <th>
+                                Má endurgreiða
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model.Staffs)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Password)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Refund)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Skoða", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/plugins/chartJs")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var lineData = {
+                labels: ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí"],
+                datasets: [
+                    {
+                        label: "Example dataset",
+                        fillColor: "rgba(220,220,220,0.5)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },
+                    {
+                        label: "Example dataset",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
+            };
+
+            var lineOptions = {
+                scaleShowGridLines: true,
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                scaleGridLineWidth: 1,
+                bezierCurve: true,
+                bezierCurveTension: 0.4,
+                pointDot: true,
+                pointDotRadius: 4,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 2,
+                datasetFill: true,
+                responsive: true,
+            };
+
+
+            var ctx = document.getElementById("lineChart").getContext("2d");
+            var myNewChart = new Chart(ctx).Line(lineData, lineOptions);
+
+        });
+    </script>
+}

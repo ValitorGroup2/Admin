@@ -28,6 +28,9 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
+    <div class="LoginImage">
+        <img src="~/Content/images/VasinnFinal.png" alt="Vasinn" class="img-responsive" />
+    </div>
                 <h4>Velkomin á Þjónustuvef Vasans</h4>
                 <small>Vinsamlegast skráðu þig inn.</small>
                 <hr />

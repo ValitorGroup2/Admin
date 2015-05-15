@@ -73,6 +73,10 @@ namespace AdminWeb
 			bundles.Add(new ScriptBundle("~/plugins/jasnyBootstrap").Include(
 					  "~/Scripts/plugins/jasny/jasny-bootstrap.min.js"));
 
+			// ChartJS chart
+			bundles.Add(new ScriptBundle("~/plugins/chartJs").Include(
+					  "~/Scripts/plugins/chartjs/Chart.min.js"));
+
         }
     }
 }
