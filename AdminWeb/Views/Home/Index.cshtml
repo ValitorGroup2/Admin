@@ -144,7 +144,7 @@
                                     @Html.DisplayFor(modelItem => item.Amount)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    @Html.ActionLink("Upplýsingar", "Details", "Transaction", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
                                 </td>
                             </tr>
                         }
@@ -201,7 +201,7 @@
                                     @Html.DisplayFor(modelItem => item.Date)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    @Html.ActionLink("Upplýsingar", "Details", "Notification", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
                                 </td>
                             </tr>
                         }
@@ -266,7 +266,7 @@
                                     @Html.DisplayFor(modelItem => item.Refund)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Skoða", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    @Html.ActionLink("Skoða", "Details", "Staff", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
                                 </td>
                             </tr>
                         }
