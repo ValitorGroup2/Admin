@@ -130,7 +130,7 @@
                                     @Html.DisplayFor(modelItem => item.Amount)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Upplýsingar", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    @Html.ActionLink("Upplýsingar", "Details", "Transaction", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
                                 </td>
                             </tr>
                         }
