@@ -32,7 +32,7 @@ namespace AdminWeb.DAL
 		/// <summary>
 		/// Function that returns 5 newest Staff accounts
 		/// </summary>
-		/// <returns>List of Sstaff accounts</returns>
+		/// <returns>List of Staff accounts</returns>
 		public List<Staff> GetFirst5Staff()
 		{
 			List<Staff> first5Staff = adminWebContext.Staffs.OrderByDescending(s => s.ID).ToList();

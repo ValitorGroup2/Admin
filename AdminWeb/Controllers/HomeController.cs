@@ -27,6 +27,7 @@ namespace AdminWeb.Controllers
 
 			Company company = adminWebDB.GetCompanyByCompanyID(companyID);
 
+			// Check if user has filled his company info, if not then he's redirected to CompanyWizard to fill inn info.
 			if (String.IsNullOrEmpty(company.SSN))
 			{
 				return View("CompanyWizard", company);

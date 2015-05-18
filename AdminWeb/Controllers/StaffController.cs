@@ -52,13 +52,12 @@ namespace AdminWeb.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-				// Muna að bæta við CompanyID og generate-a password og senda mail með upplýsingum
-				var user = accountDB.GetUserByName(User.Identity.Name);
+                var user = accountDB.GetUserByName(User.Identity.Name);
 
 				staff.CompanyID = user.CompanyID;
 				staff.Company = adminWebDB.GetCompanyByCompanyID(staff.CompanyID);
 				
+				// Generate 4 digit pin for user
 				System.Random RandNum = new System.Random();
 				staff.Password = Convert.ToString(RandNum.Next(9999));
 
@@ -86,8 +85,7 @@ namespace AdminWeb.Controllers
         {
             try
             {
-                // TODO: Add update logic here
-				staff.Company = adminWebDB.GetCompanyByCompanyID(staff.CompanyID);
+                staff.Company = adminWebDB.GetCompanyByCompanyID(staff.CompanyID);
 				adminWebDB.EditStaff(staff);
 
                 return RedirectToAction("Index");
@@ -112,8 +110,7 @@ namespace AdminWeb.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-				adminWebDB.DeleteStaff(staff.ID);
+                adminWebDB.DeleteStaff(staff.ID);
 
                 return RedirectToAction("Index");
             }

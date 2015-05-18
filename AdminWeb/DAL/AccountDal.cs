@@ -20,7 +20,7 @@ namespace AdminWeb.DAL
 		#endregion
 
 		/// <summary>
-		/// Function that returns AspNet user by name
+		/// Function that returns AspNetUser by name
 		/// </summary>
 		/// <param name="userName"></param>
 		/// <returns>AspNetUser</returns>
@@ -47,7 +47,7 @@ namespace AdminWeb.DAL
 			tempCompany.Phone = company.Phone;
 			tempCompany.SSN = company.SSN;
 			tempCompany.ZipCode = company.ZipCode;
-			tempCompany.AcceptedTerms = company.AcceptedTerms;
+			tempCompany.AcceptedTerms = true;
 
 			adminWebContext.SubmitChanges();
 		}

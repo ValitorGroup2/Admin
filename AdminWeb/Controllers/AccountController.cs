@@ -111,12 +111,12 @@ namespace AdminWeb.Controllers
             return View(model);
         }
 
+		// POST: /Account/EditInfo
 		[HttpPost]
 		public ActionResult EditInfo(Company company)
 		{
 			try
 			{
-				// TODO: Add update logic here
 				accountDB.EditUserInfo(company);
 
 				return RedirectToAction("Index", "Home");
@@ -127,12 +127,14 @@ namespace AdminWeb.Controllers
 			}
 		}
 
+		// POST: /Account/ActivateCompany
 		public async Task<ActionResult> ActivateCompany(int id)
 		{
 			Company company = accountDB.VerifyUserByCompanyID(id);
 
 			AspNetUser user = accountDB.GetUserCompanyID(company.ID);
 
+			// Change role from InActiveUser to ActiveUser
 			await UserManager.AddToRoleAsync(user.Id, "ActiveUser");
 			await UserManager.RemoveFromRoleAsync(user.Id, "InActiveUser");
 
