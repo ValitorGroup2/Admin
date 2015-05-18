@@ -72,6 +72,48 @@ namespace AdminWeb.DAL
 			}
 		}
 
+		/// <summary>
+		/// Function that verifies user and returns his company
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>Company</returns>
+		public Company VerifyUserByCompanyID(int id)
+		{
+			AspNetUser user = accountContext.AspNetUsers.Where(u => u.CompanyID == id).SingleOrDefault();
+
+			user.Verified = true;
+
+			accountContext.SubmitChanges();
+
+			Company company = adminWebContext.Companies.Where(c => c.ID == id).SingleOrDefault();
+
+			return company;
+		}
+
+		/// <summary>
+		/// Function that returns User by his id
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>AspNetUser</returns>
+		public AspNetUser GetUserByID(string id)
+		{
+			AspNetUser user = accountContext.AspNetUsers.Where(u => u.Id == id).SingleOrDefault();
+
+			return user;
+		}
+
+		/// <summary>
+		/// Function that gets user by CompanyID and returns found user
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns>AspNetUser</returns>
+		public AspNetUser GetUserCompanyID(int id)
+		{
+			AspNetUser user = accountContext.AspNetUsers.Where(u => u.CompanyID == id).SingleOrDefault();
+
+			return user;
+		}
+
 		#region Dispose
 		private bool disposed = false;
 

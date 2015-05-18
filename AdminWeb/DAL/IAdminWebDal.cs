@@ -34,6 +34,7 @@ namespace AdminWeb.DAL
 		Company GetCompanyByCompanyID(int id);
 		Company GetCompanyByName(string name);
 		void CreateCompany(Company company);
+		List<Company> GetAllCompanies();
 		#endregion
 	}
 }

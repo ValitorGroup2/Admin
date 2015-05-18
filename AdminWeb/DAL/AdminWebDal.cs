@@ -211,6 +211,17 @@ namespace AdminWeb.DAL
 			adminWebContext.Companies.InsertOnSubmit(company);
 			SaveDB();
 		}
+
+		/// <summary>
+		/// Function that returns all companies
+		/// </summary>
+		/// <returns>List of companies</returns>
+		public List<Company> GetAllCompanies()
+		{
+			List<Company> getAllCompanies = adminWebContext.Companies.ToList();
+
+			return getAllCompanies;
+		}
 		#endregion
 
 		/// <summary>

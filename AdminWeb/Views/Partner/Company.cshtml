@@ -1,0 +1,135 @@
+﻿@model AdminWeb.DAL.Connections.Company
+
+@{
+    ViewBag.Title = "Fyrirtæki";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-8">
+        <h2>@ViewBag.Title</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Fyrirtækjayfirlit", "Index")
+            </li>
+            <li class="active">
+                <strong>@ViewBag.Title</strong>
+            </li>
+        </ol>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="title-action">
+            @Html.ActionLink("Tilbaka", "Companies", "Company", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Upplýsingar um @Model.Name</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+        <dt>
+            Nafn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Heimilisfang
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            Póstnr.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            Borg
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            Kennitala
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SSN)
+        </dd>
+
+        <dt>
+            Reikningsnr.
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccount)
+        </dd>
+
+        <dt>
+            Tölvupóstur
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Sími
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Samþykkti skilmála
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcceptedTerms)
+        </dd>
+
+    </dl>
+
+
+	    @Html.ActionLink("Virkja notanda", "ActivateCompany/" + Model.ID, "Account", null, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,16 +10,19 @@
 
     <ul class="nav navbar-top-links navbar-right">
         @{
-            var verified = Html.Action("IsVerified", "Account");
+            if (User.IsInRole("Admin") || User.IsInRole("ActiveUser") || User.IsInRole("InActiveUser"))
+            {
+                var verified = Html.Action("IsVerified", "Account");
 
-            
-            if (verified.ToString() == "True")
-            {
-                <li class="text-success">Virkur</li>
-            }
-            else
-            {
-                <li class="text-danger">Óvirkur</li>
+
+                if (verified.ToString() == "True")
+                {
+                    <li class="text-success">Virkur</li>
+                }
+                else
+                {
+                    <li class="text-danger">Óvirkur</li>
+                }
             }
         }
         <li>

@@ -96,8 +96,10 @@ namespace AdminWeb.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+					await UserManager.AddToRoleAsync(user.Id, "InActiveUser");
+					
+					await SignInAsync(user, isPersistent: false);
+					return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -123,6 +125,18 @@ namespace AdminWeb.Controllers
 			{
 				return View();
 			}
+		}
+
+		public async Task<ActionResult> ActivateCompany(int id)
+		{
+			Company company = accountDB.VerifyUserByCompanyID(id);
+
+			AspNetUser user = accountDB.GetUserCompanyID(company.ID);
+
+			await UserManager.AddToRoleAsync(user.Id, "ActiveUser");
+			await UserManager.RemoveFromRoleAsync(user.Id, "InActiveUser");
+
+			return RedirectToAction("Company/" + id, "Partner");
 		}
 
         //

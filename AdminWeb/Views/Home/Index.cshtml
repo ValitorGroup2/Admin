@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-
+    
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
@@ -95,189 +95,190 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>5 nýjustu færslurnar</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
+    @if (User.IsInRole("Admin") || User.IsInRole("ActiveUser"))
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>5 nýjustu færslurnar</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="ibox-content">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>
-                                Færslunúmer
-                            </th>
-                            <th>
-                                Starfsmaður
-                            </th>
-                            <th>
-                                Dagsetning
-                            </th>
-                            <th>
-                                Upphæð
-                            </th>
-
-                            <th></th>
-                        </tr>
-                        @foreach (var item in Model.Transactions)
-                        {
+                    <div class="ibox-content">
+                        <table class="table table-striped">
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.ID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Staff.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Date)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Amount)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Upplýsingar", "Details", "Transaction", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
-                                </td>
+                                <th>
+                                    Færslunúmer
+                                </th>
+                                <th>
+                                    Starfsmaður
+                                </th>
+                                <th>
+                                    Dagsetning
+                                </th>
+                                <th>
+                                    Upphæð
+                                </th>
+
+                                <th></th>
                             </tr>
-                        }
-                    </table>
+                            @foreach (var item in Model.Transactions)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Staff.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Amount)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Upplýsingar", "Details", "Transaction", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>5 nýjustu tilkynningarnar</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>5 nýjustu tilkynningarnar</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="ibox-content">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>
-                                Starfsmaður
-                            </th>
-                            <th>
-                                Færslunúmer
-                            </th>
-                            <th>
-                                Skilaboð
-                            </th>
-                            <th>
-                                Dagsetning
-                            </th>
-                            <th></th>
-                        </tr>
-                        @foreach (var item in Model.Notifications)
-                        {
+                    <div class="ibox-content">
+                        <table class="table table-striped">
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Transaction.Staff.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TransactionID)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Description)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Date)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Upplýsingar", "Details", "Notification", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
-                                </td>
+                                <th>
+                                    Starfsmaður
+                                </th>
+                                <th>
+                                    Færslunúmer
+                                </th>
+                                <th>
+                                    Skilaboð
+                                </th>
+                                <th>
+                                    Dagsetning
+                                </th>
+                                <th></th>
                             </tr>
-                        }
-                    </table>
+                            @foreach (var item in Model.Notifications)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Transaction.Staff.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TransactionID)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Upplýsingar", "Details", "Notification", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>5 nýjustu sýndarposarnir</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>5 nýjustu sýndarposarnir</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="ibox-content">
+                    <div class="ibox-content">
 
-                    <table class="table table-striped">
-                        <tr>
-                            <th>
-                                Notandanafn
-                            </th>
-                            <th>
-                                Lykilorð
-                            </th>
-                            <th>
-                                Aldur
-                            </th>
-                            <th>
-                                Tölvupóstur
-                            </th>
-                            <th>
-                                Má endurgreiða
-                            </th>
-                            <th></th>
-                        </tr>
-
-                        @foreach (var item in Model.Staffs)
-                        {
+                        <table class="table table-striped">
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Password)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Age)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Email)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Refund)
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Skoða", "Details", "Staff", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
-                                </td>
+                                <th>
+                                    Notandanafn
+                                </th>
+                                <th>
+                                    Lykilorð
+                                </th>
+                                <th>
+                                    Aldur
+                                </th>
+                                <th>
+                                    Tölvupóstur
+                                </th>
+                                <th>
+                                    Má endurgreiða
+                                </th>
+                                <th></th>
                             </tr>
-                        }
 
-                    </table>
+                            @foreach (var item in Model.Staffs)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Password)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Age)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Refund)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Skoða", "Details", "Staff", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" })
+                                    </td>
+                                </tr>
+                            }
 
+                        </table>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
+    }
 </div>
 
 @section Scripts {

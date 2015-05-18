@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
+    <Compile Include="Controllers\PartnerController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="DAL\AccountDal.cs" />
@@ -329,6 +330,8 @@
     <Content Include="Views\Notification\Details.cshtml" />
     <Content Include="Views\Account\_Company.cshtml" />
     <Content Include="Views\Shared\CompanyWizard.cshtml" />
+    <Content Include="Views\Partner\Companies.cshtml" />
+    <Content Include="Views\Partner\Company.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
