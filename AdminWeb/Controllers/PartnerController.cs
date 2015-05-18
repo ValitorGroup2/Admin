@@ -1,5 +1,6 @@
 ﻿using AdminWeb.DAL;
 using AdminWeb.DAL.Connections;
+using AdminWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +32,12 @@ namespace AdminWeb.Controllers
         // GET: Partner/Details/5
         public ActionResult Company(int id)
         {
-			var company = adminWebDB.GetCompanyByCompanyID(id);
+			CompanyDetailsViewModel companyDetailsVM = new CompanyDetailsViewModel(); 
 			
-			return View(company);
+			companyDetailsVM.Company = adminWebDB.GetCompanyByCompanyID(id);
+			companyDetailsVM.User = accountDB.GetUserCompanyID(id);
+			
+			return View(companyDetailsVM);
         }
 
     }

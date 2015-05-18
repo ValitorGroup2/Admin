@@ -194,6 +194,7 @@
     </Compile>
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CompanyDetailsViewModel.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\StaffDetailsViewModel.cs" />

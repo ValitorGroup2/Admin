@@ -11,5 +11,6 @@ namespace AdminWeb.Models
 		public IEnumerable<Staff> Staffs{ get; set; }
 		public IEnumerable<Transaction> Transactions { get; set; }
 		public IEnumerable<Notification> Notifications { get; set; }
+		public IEnumerable<Company> Companies { get; set; }
 	}
 }

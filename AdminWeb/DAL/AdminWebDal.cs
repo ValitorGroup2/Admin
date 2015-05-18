@@ -179,6 +179,17 @@ namespace AdminWeb.DAL
 
 		#region Company
 		/// <summary>
+		/// Function that returns first 5 companies
+		/// </summary>
+		/// <returns>List of Company</returns>
+		public List<Company> First5Companies()
+		{
+			List<Company> first5Companies = adminWebContext.Companies.OrderByDescending(c => c.ID).Take(5).ToList();
+
+			return first5Companies;
+		}
+
+		/// <summary>
 		/// Function that returns Company from DB by ID
 		/// </summary>
 		/// <param name="id"></param>

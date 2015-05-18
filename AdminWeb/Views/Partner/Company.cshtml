@@ -1,4 +1,4 @@
-﻿@model AdminWeb.DAL.Connections.Company
+﻿@model AdminWeb.Models.CompanyDetailsViewModel
 
 @{
     ViewBag.Title = "Fyrirtæki";
@@ -19,7 +19,7 @@
 
     <div class="col-sm-4">
         <div class="title-action">
-            @Html.ActionLink("Tilbaka", "Companies", "Company", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Tilbaka", "Companies", "Partner", null, new { @class = "btn btn-primary" })
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Upplýsingar um @Model.Name</h5>
+                    <h5>Upplýsingar um @Model.Company.Name</h5>
                 </div>
                 <div class="ibox-content">
 
@@ -43,7 +43,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Company.Name)
         </dd>
 
         <dt>
@@ -51,7 +51,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @Html.DisplayFor(model => model.Company.Address)
         </dd>
 
         <dt>
@@ -59,7 +59,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ZipCode)
+            @Html.DisplayFor(model => model.Company.ZipCode)
         </dd>
 
         <dt>
@@ -67,7 +67,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.City)
+            @Html.DisplayFor(model => model.Company.City)
         </dd>
 
         <dt>
@@ -75,7 +75,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SSN)
+            @Html.DisplayFor(model => model.Company.SSN)
         </dd>
 
         <dt>
@@ -83,7 +83,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.BankAccount)
+            @Html.DisplayFor(model => model.Company.BankAccount)
         </dd>
 
         <dt>
@@ -91,7 +91,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.Company.Email)
         </dd>
 
         <dt>
@@ -99,7 +99,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Phone)
+            @Html.DisplayFor(model => model.Company.Phone)
         </dd>
 
         <dt>
@@ -107,13 +107,27 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AcceptedTerms)
+            @Html.DisplayFor(model => model.Company.AcceptedTerms)
         </dd>
+        
+        <dt>
+            Staða á notanda
+        </dt>
 
+        @{
+            if (Model.User.Verified == true)
+            {
+                <dd>Virkur</dd>
+            }
+            else
+            {
+                <dd>Óvirkur</dd>
+            }
+        }
     </dl>
 
 
-	    @Html.ActionLink("Virkja notanda", "ActivateCompany/" + Model.ID, "Account", null, new { @class = "btn btn-primary" })
+	    @Html.ActionLink("Virkja notanda", "ActivateCompany/" + Model.Company.ID, "Account", null, new { @class = "btn btn-primary" })
 
                 </div>
             </div>

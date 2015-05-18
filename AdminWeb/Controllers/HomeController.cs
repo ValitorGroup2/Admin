@@ -38,6 +38,7 @@ namespace AdminWeb.Controllers
 				dashboardVM.Staffs = adminWebDB.GetFirst5Staff();
 				dashboardVM.Transactions = adminWebDB.Get5NewestTransactions();
 				dashboardVM.Notifications = adminWebDB.Get5NewestNotifications();
+				dashboardVM.Companies = adminWebDB.First5Companies();
 
 				return View(dashboardVM);
 			}
